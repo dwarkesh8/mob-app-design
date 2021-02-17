@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>splash screen</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fa-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/loader.css">
+	<style type="text/css">
+		body {
+			height: 100%;
+			width: auto;
+			background-color: #dc3545;
+			font-family: rockwell;
+		}
+		#main {display:none;}
+		.text-fadeIn {display: none;}
+		/*.loader {display: none;}*/
+		.centered {
+			position: fixed;
+			top: 50%;
+			left: 45%;
+			transform: translate(-50%, -50%);
+		}
+		.navbar {
+			overflow: hidden;
+			background-color: #333;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+		}
+
+		.navbar a {
+			float: left;
+			display: block;
+			color: #f2f2f2;
+			text-align: center;
+			padding: 8px 10px;
+			text-decoration: none;
+			font-size: 10px;
+		}
+
+		.navbar a:hover {
+			background: #f1f1f1;
+			color: black;
+		}
+		span {
+			font-size: 30px !important;
+		}
+		.bottom-border {
+			border: none !important;
+			border-bottom: 2px solid #dc3545 !important;
+		}
+		input {
+			font-weight: bold;
+			font-size: 18px;
+			border-radius: 0px !important;
+		}
+		/* Chrome, Safari, Edge, Opera */
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+
+		/* Firefox */
+		input[type=number] {
+			-moz-appearance: textfield;
+		}
+		.padding-5 {padding: 5px;}
+		.shadow-bottom {box-shadow: 0px 2px 3px white;}
+		.bg-dark {background-color: #333 !important;}
+	</style>
+</head>
+<body>
+	<div class="centered" id="splash">
+		<div class="loader"></div>
+	</div>
+	<div id="main">
+		<div class="">
+			<div class="text-center padding-5 bg-dark text-light shadow-bottom">
+				<span class="fa fa-user"></span>
+				<h3>User's Info</h3>
+			</div>
+			<div class="container" style="max-height: 500px; overflow: auto;">
+				<form class="form mt-5">
+					<div class="form-group">
+						<label>Username</label>
+						<input type="text" class="form-control bottom-border">
+					</div>
+					<div class="form-group">
+						<label>Password</label>
+						<input type="password" class="form-control bottom-border">
+					</div>
+					<div class="form-group">
+						<label>Email</label>
+						<input type="email" class="form-control bottom-border">
+					</div>
+					<div class="form-group">
+						<label>Contact</label>
+						<input type="number" class="form-control bottom-border">
+					</div>
+					<div class="form-group">
+						<label>Address</label>
+						<textarea class="form-control"></textarea>
+					</div>
+					<div class="form-group">
+						<label>Profile photo</label>
+						<input type="file" class="form-control">
+					</div>
+					<div class="form-group">
+						<button class="btn btn-outline-light btn-block"><i class="fa fa-save"></i> Save</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="fixed-bottom">
+			<div class="navbar">
+				<a href="home.html" class="active"><span class="fa fa-home"></span></a>
+				<a href="profile.html"><span class="fa fa-user"></span></a>
+				<a href="#post"><span class="fa fa-plus"></span></a>
+				<a href="#profile"><span class="fa fa-envelope"></span></a>
+				<a href="#settings"><span class="fa fa-gear"></span></a>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="bootstrap-4.0.0-dist/js/jquery.min.js"></script>
+	<script type="text/javascript" src="bootstrap-4.0.0-dist/js/popper.min.js"></script>
+	<script type="text/javascript" src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// setTimeout(function(){
+				$("#main").fadeIn(1000);
+				$(".loader").fadeOut(1000);
+			// }, 3000);
+		});
+	</script>
+</body>
+</html>

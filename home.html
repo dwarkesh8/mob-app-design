@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>splash screen</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fa-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/loader.css">
+	<style type="text/css">
+		body {
+			height: 100%;
+			width: auto;
+			background-color: #dc3545;
+			font-family: rockwell;
+		}
+		#main {display:none;}
+		/*.loader {display: none;}*/
+		.centered {
+			position: fixed;
+			top: 50%;
+			left: 45%;
+			transform: translate(-50%, -50%);
+		}
+		.navbar {
+			overflow: hidden;
+			background-color: #333;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+		}
+
+		.navbar a {
+			float: left;
+			display: block;
+			color: #f2f2f2;
+			text-align: center;
+			padding: 8px 10px;
+			text-decoration: none;
+			font-size: 10px;
+		}
+
+		.navbar a:hover {
+			background: #f1f1f1;
+			color: black;
+		}
+		span {
+			font-size: 30px !important;
+		}
+		.fa-cloud {color: white;}
+		.fa-cloud {
+			animation: bounce 0.5s;
+			animation-direction: alternate;
+			animation-timing-function: cubic-bezier(.5,0.05,1,.5);
+			animation-iteration-count: infinite;
+		}
+
+		@keyframes bounce {
+			from { transform: translate3d(0, 0, 0);     }
+			to   { transform: translate3d(0, 20px, 0); }
+		}
+
+		/* Prefix Support */
+		.fa-cloud {
+			-webkit-animation-name: bounce;
+			-webkit-animation-duration: 0.5s;
+			-webkit-animation-direction: alternate;
+			-webkit-animation-timing-function: cubic-bezier(.5,0.05,1,.5);
+			-webkit-animation-iteration-count: infinite;
+		}
+
+		@-webkit-keyframes bounce {
+			from { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+			to   { -webkit-transform: translate3d(0, 200px, 0); transform: translate3d(0, 20px, 0); }
+		}
+		.bottom-border {
+			border: none;
+			border-bottom: 2px solid #dc3545;
+		}
+		input[type=text] {
+			font-weight: bold;
+			font-size: 18px;
+		}
+		.jumbotron {
+			border-radius: 0px !important;
+		}
+		.fa-stack[data-count]:after{
+			position:absolute;
+			right:0%;
+			/*top:1%;*/
+			content: attr(data-count);
+			font-size:40%;
+			padding:.6em;
+			border-radius:999px;
+			line-height:.85em;
+			color: white;
+			background:rgba(255,0,0,.85);
+			text-align:center;
+			min-width:2em;
+			font-weight:bold;
+		}
+		.notify {
+			background: #323232;
+			border-radius: 3px;
+			-webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+			-moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+			box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+			color: #fff;
+			display: inline-block;
+			font-size: 17px;
+			padding: 0.8rem 1.4rem;
+			position: absolute;
+			top: 10px;
+			right: 20px;
+			transition: all 0.5s ease-in-out;
+			transform-origin: left top;
+			transform: scaleY(1);
+			z-index: 10000;
+		}
+		.notify.-hidden {
+			opacity: 0;
+			transform: scaleY(0);
+		}
+	</style>
+</head>
+<body>
+	<div class="centered text-center">
+		<div class="loader"></div>
+	</div>
+	<div id="main">
+		<div class="notifications">
+			<div class='notify -hidden'>
+				No updates
+			</div>
+		</div>
+		<div class="fixed-top">
+			<div class="jumbotron bg-light">
+				<div class="row mx-md-n5 mb-2">
+					<div class="col px-md-5">
+						<div class="text-left float-left">
+							<span class="fa fa-user img-thumbnail" style="font-size: 45px !important"></span>
+						</div>
+					</div>
+					<div class="col px-md-5">
+						<div class="text-right float-right">
+							<span class="fa-stack fa-3x my-button click-handler" data-count="8">
+								<i class="fa fa-square fa-stack-2x"></i>
+								<i class="fa fa-bell fa-stack-1x fa-inverse"></i>
+							</span>	
+						</div>
+					</div>
+				</div>
+				<div class="text-center">
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text bg-dark text-light" id="basic-addon1"><i class="fa fa-search"></i></span>
+						</div>
+						<input type="text" class="form-control bottom-border" placeholder="Search..." aria-label="Search..." aria-describedby="basic-addon1">
+					</div>
+				</div>
+			</div>
+			<div class="fixed-bottom">
+				<div class="navbar">
+					<a href="#!" class="active"><span class="fa fa-home"></span></a>
+					<a href="profile.html"><span class="fa fa-user"></span></a>
+					<a href="#post"><span class="fa fa-plus"></span></a>
+					<a href="#profile"><span class="fa fa-envelope"></span></a>
+					<a href="#settings"><span class="fa fa-gear"></span></a>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="bootstrap-4.0.0-dist/js/jquery.min.js"></script>
+		<script type="text/javascript" src="bootstrap-4.0.0-dist/js/popper.min.js"></script>
+		<script type="text/javascript" src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+					$(".loader").fadeOut(1000);
+					$("#main").fadeIn(1000);
+				notifyPositionCalc = (notifyEl) => {
+					let notiFyiers = $('.notify:not(.-hidden)')
+					let notifyCounter = notiFyiers.length;
+					if (!notifyEl) {
+						notiFyiers.map((i,v) => {
+							$(v).css('top', (i - 1) * ($(v).outerHeight() + 10) + 'px');
+						})
+						return true;
+					}
+
+					if (notifyCounter >= 1) {
+						notifyEl.css('top', (notifyCounter - 1) * (notifyEl.outerHeight() + 10) + 'px');
+					} 
+				}
+
+				$(document).ready( () => {
+					$('.click-handler').on('click', () => {    
+						let newNotify = $('.notify.-hidden').clone().removeClass('-hidden').appendTo('body');
+
+						notifyPositionCalc(newNotify);
+						setTimeout(() => {
+							newNotify.remove();
+							notifyPositionCalc();
+						}, 5000);
+					});
+				});
+			});
+		</script>
+	</body>
+	</html>
