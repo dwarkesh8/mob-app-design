@@ -47,6 +47,7 @@
 		span {
 			font-size: 30px !important;
 		}
+		.badge-pill {font-size: 15px !important;}
 		.fa-cloud {color: white;}
 		.fa-cloud {
 			animation: bounce 0.5s;
@@ -107,20 +108,30 @@
 			box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
 			color: #fff;
 			display: inline-block;
-			font-size: 17px;
-			padding: 0.8rem 1.4rem;
+			font-size: 20px;
+			padding: 1.4rem 1.4rem;
+			min-width: 100%;
 			position: absolute;
 			top: 10px;
-			right: 20px;
-			transition: all 0.5s ease-in-out;
+			right: 0px;
+			/*transition: all 0.5s ease-in-out;
 			transform-origin: left top;
-			transform: scaleY(1);
+			transform: scaleY(1);*/
 			z-index: 10000;
 		}
 		.notify.-hidden {
 			opacity: 0;
 			transform: scaleY(0);
 		}
+		section::-webkit-scrollbar {
+			display: none;
+		}
+		section {
+			-ms-overflow-style:none;
+			scrollbar-width:none;
+		}
+
+		
 	</style>
 </head>
 <body>
@@ -151,7 +162,7 @@
 					</div>
 				</div>
 				<div class="text-center">
-					<div class="input-group mb-3">
+					<div class="input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text bg-dark text-light" id="basic-addon1"><i class="fa fa-search"></i></span>
 						</div>
@@ -159,50 +170,96 @@
 					</div>
 				</div>
 			</div>
-			<div class="fixed-bottom">
-				<div class="navbar">
-					<a href="#!" class="active"><span class="fa fa-home"></span></a>
-					<a href="profile.html"><span class="fa fa-user"></span></a>
-					<a href="#post"><span class="fa fa-plus"></span></a>
-					<a href="#profile"><span class="fa fa-envelope"></span></a>
-					<a href="#settings"><span class="fa fa-gear"></span></a>
-				</div>
+		</div>
+		<div class="items" style="margin-top: 180px;">
+			<div class="container">
+				<section style="max-height: 500px; overflow-y: auto;">
+					<div class="list-group mb-1">
+						<li class="list-group-item list-group-item-light">
+							<h4 class="float-left"><img src="img/CIS-logo.png" height="40" width="40"> Item A</h4>
+							<small class="float-right">3 hours ago</small>
+						</li>
+						<li class="list-group-item list-group-item-light">
+							<div class="">
+								<p><b>Price:</b><del><i class="fa fa-usd"></i> 200</del> <i class="fa fa-usd"></i> 90</p>
+								<p><b>Seller:</b> <i class="fa fa-user"></i> cis <span class="badge badge-primary badge-pill">verified</span></p>
+
+							</div>
+						</li>
+					</div>
+					<div class="list-group mb-1">
+						<li class="list-group-item list-group-item-light">
+							<h4 class="float-left"><img src="img/CIS-logo.png" height="40" width="40"> Item A</h4>
+							<small class="float-right">3 hours ago</small>
+						</li>
+						<li class="list-group-item list-group-item-light">
+							<div class="">
+								<p><b>Price:</b><del><i class="fa fa-usd"></i> 200</del> <i class="fa fa-usd"></i> 90</p>
+								<p><b>Seller:</b> <i class="fa fa-user"></i> cis <span class="badge badge-primary badge-pill">verified</span></p>
+
+							</div>
+						</li>
+					</div>
+					<div class="list-group mb-1">
+						<li class="list-group-item list-group-item-light">
+							<h4 class="float-left"><img src="img/CIS-logo.png" height="40" width="40"> Item A</h4>
+							<small class="float-right">3 hours ago</small>
+						</li>
+						<li class="list-group-item list-group-item-light">
+							<div class="">
+								<p><b>Price:</b><del><i class="fa fa-usd"></i> 200</del> <i class="fa fa-usd"></i> 90</p>
+								<p><b>Seller:</b> <i class="fa fa-user"></i> cis <span class="badge badge-primary badge-pill">verified</span></p>
+
+							</div>
+						</li>
+					</div>
+				</section>
 			</div>
 		</div>
-		<script type="text/javascript" src="bootstrap-4.0.0-dist/js/jquery.min.js"></script>
-		<script type="text/javascript" src="bootstrap-4.0.0-dist/js/popper.min.js"></script>
-		<script type="text/javascript" src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function(){
-					$(".loader").fadeOut(1000);
-					$("#main").fadeIn(1000);
-				notifyPositionCalc = (notifyEl) => {
-					let notiFyiers = $('.notify:not(.-hidden)')
-					let notifyCounter = notiFyiers.length;
-					if (!notifyEl) {
-						notiFyiers.map((i,v) => {
-							$(v).css('top', (i - 1) * ($(v).outerHeight() + 10) + 'px');
-						})
-						return true;
-					}
-
-					if (notifyCounter >= 1) {
-						notifyEl.css('top', (notifyCounter - 1) * (notifyEl.outerHeight() + 10) + 'px');
-					} 
+		<div class="fixed-bottom">
+			<div class="navbar">
+				<a href="home.html" class="active"><span class="fa fa-home"></span></a>
+				<a href="profile.html"><span class="fa fa-user"></span></a>
+				<a href="#post"><span class="fa fa-plus"></span></a>
+				<a href="chat.html"><span class="fa fa-envelope"></span></a>
+				<a href="#settings"><span class="fa fa-gear"></span></a>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="bootstrap-4.0.0-dist/js/jquery.min.js"></script>
+	<script type="text/javascript" src="bootstrap-4.0.0-dist/js/popper.min.js"></script>
+	<script type="text/javascript" src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".loader").fadeOut(1000);
+			$("#main").fadeIn(1000);
+			notifyPositionCalc = (notifyEl) => {
+				let notiFyiers = $('.notify:not(.-hidden)')
+				let notifyCounter = notiFyiers.length;
+				if (!notifyEl) {
+					notiFyiers.map((i,v) => {
+						$(v).css('top', (i - 1) * ($(v).outerHeight() + 10) + 'px');
+					})
+					return true;
 				}
 
-				$(document).ready( () => {
-					$('.click-handler').on('click', () => {    
-						let newNotify = $('.notify.-hidden').clone().removeClass('-hidden').appendTo('body');
+				if (notifyCounter >= 1) {
+					notifyEl.css('top', (notifyCounter - 1) * (notifyEl.outerHeight() + 10) + 'px');
+				} 
+			}
 
-						notifyPositionCalc(newNotify);
-						setTimeout(() => {
-							newNotify.remove();
-							notifyPositionCalc();
-						}, 5000);
-					});
+			$(document).ready( () => {
+				$('.click-handler').on('click', () => {    
+					let newNotify = $('.notify.-hidden').clone().removeClass('-hidden').appendTo('body');
+
+					notifyPositionCalc(newNotify);
+					setTimeout(() => {
+						newNotify.remove();
+						notifyPositionCalc();
+					}, 5000);
 				});
 			});
-		</script>
-	</body>
-	</html>
+		});
+	</script>
+</body>
+</html>
