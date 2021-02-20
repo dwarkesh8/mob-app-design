@@ -44,8 +44,11 @@
 			background: #f1f1f1;
 			color: black;
 		}
-		span.font-30 {
+		.font-30 {
 			font-size: 30px !important;
+		}
+		.font-20 {
+			font-size: 20px !important;
 		}
 		.badge-pill {font-size: 15px !important;}
 		.fa-cloud {color: white;}
@@ -120,6 +123,8 @@
 			-ms-overflow-style:none;
 			scrollbar-width:none;
 		}
+		.card-header {padding: 2px !important}
+		.card-body {padding: 3px !important}
 
 		
 	</style>
@@ -217,10 +222,10 @@
 			<div class='notify -hidden'>
 				<div class="card bg-dark text-white">
 					<div class="card-header">
-						Notification
+						<span class="font-20">Notification</span>
 					</div>
 					<div class="card-body">
-						This is a notification!
+						<span class="font-20">This is a notification!</span>
 					</div>
 				</div>
 			</div>
@@ -230,12 +235,12 @@
 				<div class="row mx-md-n5 mb-1">
 					<div class="col px-md-5">
 						<div class="text-left float-left">
-							<span class="fa fa-user font-30" data-target="#loginModal" data-toggle="modal"></span>
+							<span class="fa fa-user font-20" data-target="#loginModal" data-toggle="modal"></span>
 						</div>
 					</div>
 					<div class="col px-md-5">
 						<div class="text-right float-right">
-							<span class="fa fa-bell font-30 click-handler" ></span>
+							<span class="fa fa-bell font-20 click-handler" ></span>
 						</div>
 					</div>
 				</div>
@@ -254,7 +259,19 @@
 				<section style="max-height: auto; overflow-y: auto;">
 					<div class="list-group mb-1">
 						<li class="list-group-item list-group-item-light">
-							<h4 class="float-left"><img src="img/CIS-logo.png" height="40" width="40"> Item A</h4>
+							<h5 class="float-left"><img src="img/CIS-logo.png" height="40" width="40"> Item A</h5>
+							<small class="float-right">3 hours ago</small>
+						</li>
+						<li class="list-group-item list-group-item-light">
+							<div class="">
+								<p><b>Price:</b><del><i class="fa fa-usd"></i> 200</del> <i class="fa fa-usd"></i> 90</p>
+								<p><b>Seller:</b> <i class="fa fa-user"></i> cis <span class="badge badge-primary badge-pill">verified</span></p>
+							</div>
+						</li>
+					</div>
+					<div class="list-group mb-1">
+						<li class="list-group-item list-group-item-light">
+							<h5 class="float-left"><img src="img/CIS-logo.png" height="40" width="40"> Item A</h5>
 							<small class="float-right">3 hours ago</small>
 						</li>
 						<li class="list-group-item list-group-item-light">
@@ -267,7 +284,7 @@
 					</div>
 					<div class="list-group mb-1">
 						<li class="list-group-item list-group-item-light">
-							<h4 class="float-left"><img src="img/CIS-logo.png" height="40" width="40"> Item A</h4>
+							<h5 class="float-left"><img src="img/CIS-logo.png" height="40" width="40"> Item A</h5>
 							<small class="float-right">3 hours ago</small>
 						</li>
 						<li class="list-group-item list-group-item-light">
@@ -280,7 +297,7 @@
 					</div>
 					<div class="list-group mb-1">
 						<li class="list-group-item list-group-item-light">
-							<h4 class="float-left"><img src="img/CIS-logo.png" height="40" width="40"> Item A</h4>
+							<h5 class="float-left"><img src="img/CIS-logo.png" height="40" width="40"> Item A</h5>
 							<small class="float-right">3 hours ago</small>
 						</li>
 						<li class="list-group-item list-group-item-light">
@@ -293,7 +310,7 @@
 					</div>
 					<div class="list-group mb-1">
 						<li class="list-group-item list-group-item-light">
-							<h4 class="float-left"><img src="img/CIS-logo.png" height="40" width="40"> Item A</h4>
+							<h5 class="float-left"><img src="img/CIS-logo.png" height="40" width="40"> Item A</h5>
 							<small class="float-right">3 hours ago</small>
 						</li>
 						<li class="list-group-item list-group-item-light">
@@ -306,20 +323,7 @@
 					</div>
 					<div class="list-group mb-1">
 						<li class="list-group-item list-group-item-light">
-							<h4 class="float-left"><img src="img/CIS-logo.png" height="40" width="40"> Item A</h4>
-							<small class="float-right">3 hours ago</small>
-						</li>
-						<li class="list-group-item list-group-item-light">
-							<div class="">
-								<p><b>Price:</b><del><i class="fa fa-usd"></i> 200</del> <i class="fa fa-usd"></i> 90</p>
-								<p><b>Seller:</b> <i class="fa fa-user"></i> cis <span class="badge badge-primary badge-pill">verified</span></p>
-
-							</div>
-						</li>
-					</div>
-					<div class="list-group mb-1">
-						<li class="list-group-item list-group-item-light">
-							<h4 class="float-left"><img src="img/CIS-logo.png" height="40" width="40"> Item A</h4>
+							<h5 class="float-left"><img src="img/CIS-logo.png" height="40" width="40"> Item A</h5>
 							<small class="float-right">3 hours ago</small>
 						</li>
 						<li class="list-group-item list-group-item-light">
@@ -335,11 +339,11 @@
 		</div>
 		<div class="fixed-bottom">
 			<div class="navbar">
-				<a href="home.html" class="active"><span class="fa fa-home font-30"></span></a>
-				<a href="profile.html"><span class="fa fa-user font-30"></span></a>
-				<a href="post.html"><span class="fa fa-plus font-30"></span></a>
-				<a href="chat.html"><span class="fa fa-envelope font-30"></span></a>
-				<a href="#settings"><span class="fa fa-gear font-30"></span></a>
+				<a href="home.html" class="active"><span class="fa fa-home font-20"></span></a>
+				<a href="profile.html"><span class="fa fa-user font-20"></span></a>
+				<a href="post.html"><span class="fa fa-plus font-20"></span></a>
+				<a href="chat.html"><span class="fa fa-envelope font-20"></span></a>
+				<a href="#settings"><span class="fa fa-gear font-20"></span></a>
 			</div>
 		</div>
 	</div>
