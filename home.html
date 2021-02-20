@@ -12,10 +12,10 @@
 			height: 100%;
 			width: auto;
 			background-color: #dc3545;
-			font-family: rockwell;
+			font-family: 'Times New Roman';
+			margin: 0;
 		}
 		#main {display:none;}
-		/*.loader {display: none;}*/
 		.centered {
 			position: fixed;
 			top: 50%;
@@ -37,14 +37,14 @@
 			text-align: center;
 			padding: 8px 10px;
 			text-decoration: none;
-			font-size: 10px;
+			/*font-size: 10px;*/
 		}
 
 		.navbar a:hover {
 			background: #f1f1f1;
 			color: black;
 		}
-		span {
+		span.font-30 {
 			font-size: 30px !important;
 		}
 		.badge-pill {font-size: 15px !important;}
@@ -74,49 +74,39 @@
 			from { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
 			to   { -webkit-transform: translate3d(0, 200px, 0); transform: translate3d(0, 20px, 0); }
 		}
-		.bottom-border {
-			border: none;
-			border-bottom: 2px solid #dc3545;
+		.border-bottom-black {
+			border: none !important;
+			border-bottom: 2px solid #000 !important;
 		}
-		input[type=text] {
+		.border-bottom-primary {
+			border: none !important;
+			border-bottom: 2px solid #007bff !important;
+		}
+		input {
 			font-weight: bold;
 			font-size: 18px;
+			border-radius: 0px !important;
 		}
 		.jumbotron {
 			border-radius: 0px !important;
 		}
-		.fa-stack[data-count]:after{
-			position:absolute;
-			right:0%;
-			/*top:1%;*/
-			content: attr(data-count);
-			font-size:40%;
-			padding:.6em;
-			border-radius:999px;
-			line-height:.85em;
-			color: white;
-			background:rgba(255,0,0,.85);
-			text-align:center;
-			min-width:2em;
-			font-weight:bold;
-		}
 		.notify {
 			background: #323232;
 			border-radius: 3px;
-			-webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
-			-moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
-			box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
 			color: #fff;
 			display: inline-block;
 			font-size: 20px;
-			padding: 1.4rem 1.4rem;
+			padding: 0;
+			margin-top: 20px;
 			min-width: 100%;
 			position: absolute;
 			top: 10px;
 			right: 0px;
-			/*transition: all 0.5s ease-in-out;
-			transform-origin: left top;
-			transform: scaleY(1);*/
+			left: 0px;
+			box-shadow: 0px 3px 14px #444340;
+			transition: all 0.5s ease-in;
+			transform-origin: top center;
+			transform: scaleY(1);
 			z-index: 10000;
 		}
 		.notify.-hidden {
@@ -135,29 +125,117 @@
 	</style>
 </head>
 <body>
+	<div class="modal mt-2" id="loginModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <div class="row">
+          <div id="loginDiv" class="col-md-4">
+            <div class="container">
+              <form class="mt-2">
+                <div class="form-group">
+                  <label for="email"><span class="fa fa-user"></span> Email</label><br>
+                  <input type="email" id="email" name="email" class="form-control border-bottom-black" autocomplete="off">
+                </div>
+                <div class="form-group">
+                  <label for="password"><span class="fa fa-lock"></span> Password</label>
+                  <input type="password" id="password" name="password" class="form-control border-bottom-black">
+                </div>
+                <div class="form-group">
+                  <button id="btnSignin" type="button" class="btn btn-outline-primary btn-block"><span class="fa fa-lock"></span> Sign in</button>
+                  <p id="responseMsg"></p>
+                </div>
+              </form>
+              <div class="row col-md-12">
+                <span>Haven't Registered yet? <a href="#!" id="aJoinNow" data-toggle="modal" data-target="signUpModal">Join Now</a></span>                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" id="btnClose" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal mt-2" id="signUpModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Signup</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <div class="row">
+          <div id="loginDiv" class="col-md-4">
+            <div class="container">
+              <form class="mt-2">
+                <div class="form-group">
+                  <label for="email"><span class="fa fa-user"></span> Email</label><br>
+                  <input type="email" id="email" name="email" class="form-control border-bottom-black" autocomplete="off">
+                </div>
+                <div class="form-group">
+                  <label for="password"><span class="fa fa-lock"></span> Password</label>
+                  <input type="password" id="password" name="password" class="form-control border-bottom-black">
+                </div>
+                <div class="form-group">
+                  <label for="contact"><span class="fa fa-lock"></span> contact</label>
+                  <input type="number" id="contact" name="contact" class="form-control border-bottom-black">
+                </div>
+                <div class="form-group">
+                  <button id="btnSignin" type="button" class="btn btn-outline-primary btn-block"><span class="fa fa-lock"></span> Signup</button>
+                  <p id="responseMsg"></p>
+                </div>
+              </form>
+              <div class="row col-md-12">
+                <span>Already registered? <a href="#!" data-toggle="modal" data-target="loginModal">Signin now</a></span>                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" id="btnClose" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
 	<div class="centered text-center">
 		<div class="loader"></div>
 	</div>
 	<div id="main">
 		<div class="notifications">
 			<div class='notify -hidden'>
-				No updates
+				<div class="card bg-dark text-white">
+					<div class="card-header">
+						Notification
+					</div>
+					<div class="card-body">
+						This is a notification!
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="fixed-top">
+		<div class="fixed-top" id="fixed-top" style="transition: .2s">
 			<div class="jumbotron bg-light">
-				<div class="row mx-md-n5 mb-2">
+				<div class="row mx-md-n5 mb-1">
 					<div class="col px-md-5">
 						<div class="text-left float-left">
-							<span class="fa fa-user img-thumbnail" style="font-size: 45px !important"></span>
+							<span class="fa fa-user font-30" data-target="#loginModal" data-toggle="modal"></span>
 						</div>
 					</div>
 					<div class="col px-md-5">
 						<div class="text-right float-right">
-							<span class="fa-stack fa-3x my-button click-handler" data-count="8">
-								<i class="fa fa-square fa-stack-2x"></i>
-								<i class="fa fa-bell fa-stack-1x fa-inverse"></i>
-							</span>	
+							<span class="fa fa-bell font-30 click-handler" ></span>
 						</div>
 					</div>
 				</div>
@@ -166,14 +244,53 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text bg-dark text-light" id="basic-addon1"><i class="fa fa-search"></i></span>
 						</div>
-						<input type="text" class="form-control bottom-border" placeholder="Search..." aria-label="Search..." aria-describedby="basic-addon1">
+						<input type="text" class="form-control border-bottom-black" placeholder="Search..." aria-label="Search..." aria-describedby="basic-addon1">
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="items" style="margin-top: 180px;">
+		<div class="items" style="margin-top: 170px;padding-bottom: 100px;">
 			<div class="container">
-				<section style="max-height: 500px; overflow-y: auto;">
+				<section style="max-height: auto; overflow-y: auto;">
+					<div class="list-group mb-1">
+						<li class="list-group-item list-group-item-light">
+							<h4 class="float-left"><img src="img/CIS-logo.png" height="40" width="40"> Item A</h4>
+							<small class="float-right">3 hours ago</small>
+						</li>
+						<li class="list-group-item list-group-item-light">
+							<div class="">
+								<p><b>Price:</b><del><i class="fa fa-usd"></i> 200</del> <i class="fa fa-usd"></i> 90</p>
+								<p><b>Seller:</b> <i class="fa fa-user"></i> cis <span class="badge badge-primary badge-pill">verified</span></p>
+
+							</div>
+						</li>
+					</div>
+					<div class="list-group mb-1">
+						<li class="list-group-item list-group-item-light">
+							<h4 class="float-left"><img src="img/CIS-logo.png" height="40" width="40"> Item A</h4>
+							<small class="float-right">3 hours ago</small>
+						</li>
+						<li class="list-group-item list-group-item-light">
+							<div class="">
+								<p><b>Price:</b><del><i class="fa fa-usd"></i> 200</del> <i class="fa fa-usd"></i> 90</p>
+								<p><b>Seller:</b> <i class="fa fa-user"></i> cis <span class="badge badge-primary badge-pill">verified</span></p>
+
+							</div>
+						</li>
+					</div>
+					<div class="list-group mb-1">
+						<li class="list-group-item list-group-item-light">
+							<h4 class="float-left"><img src="img/CIS-logo.png" height="40" width="40"> Item A</h4>
+							<small class="float-right">3 hours ago</small>
+						</li>
+						<li class="list-group-item list-group-item-light">
+							<div class="">
+								<p><b>Price:</b><del><i class="fa fa-usd"></i> 200</del> <i class="fa fa-usd"></i> 90</p>
+								<p><b>Seller:</b> <i class="fa fa-user"></i> cis <span class="badge badge-primary badge-pill">verified</span></p>
+
+							</div>
+						</li>
+					</div>
 					<div class="list-group mb-1">
 						<li class="list-group-item list-group-item-light">
 							<h4 class="float-left"><img src="img/CIS-logo.png" height="40" width="40"> Item A</h4>
@@ -218,17 +335,19 @@
 		</div>
 		<div class="fixed-bottom">
 			<div class="navbar">
-				<a href="home.html" class="active"><span class="fa fa-home"></span></a>
-				<a href="profile.html"><span class="fa fa-user"></span></a>
-				<a href="post.html"><span class="fa fa-plus"></span></a>
-				<a href="chat.html"><span class="fa fa-envelope"></span></a>
-				<a href="#settings"><span class="fa fa-gear"></span></a>
+				<a href="home.html" class="active"><span class="fa fa-home font-30"></span></a>
+				<a href="profile.html"><span class="fa fa-user font-30"></span></a>
+				<a href="post.html"><span class="fa fa-plus font-30"></span></a>
+				<a href="chat.html"><span class="fa fa-envelope font-30"></span></a>
+				<a href="#settings"><span class="fa fa-gear font-30"></span></a>
 			</div>
 		</div>
 	</div>
 	<script type="text/javascript" src="bootstrap-4.0.0-dist/js/jquery.min.js"></script>
 	<script type="text/javascript" src="bootstrap-4.0.0-dist/js/popper.min.js"></script>
 	<script type="text/javascript" src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/navhideonscroll.js"></script>
+
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$(".loader").fadeOut(1000);

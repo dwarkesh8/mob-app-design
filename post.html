@@ -12,7 +12,8 @@
 			height: 100%;
 			width: auto;
 			background-color: #dc3545;
-			font-family: rockwell;
+			font-family: 'Times New Roman';
+			margin: 0;
 		}
 		#main {display:none;}
 		.centered {
@@ -79,15 +80,14 @@
 		<div class="">
 			<div class="text-center padding-5 bg-dark text-light shadow-bottom">
 				<div class="container">
-					<div class="mt-4 mb-3">
+					<div class="mt-2 mb-2">
 						<div>
-							<!-- <img src="img/CIS-logo.png" class="img img-circle float-left" height="60" width="60">  -->
-							<span>Post an Ad</span><br><span class="fa fa-bullhorn"></span>
+							<span class="fa fa-bullhorn"></span>&nbsp<span>Post an Ad</span>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="container mt-1" style="max-height: 500px; overflow: auto;">
+			<div class="container mt-1" style="max-height: auto; overflow: auto;padding-bottom: 100px;">
 				<form class="form">
 					<div class="form-group">
 						<label>Ad is for</label>
@@ -134,7 +134,7 @@
 				</form>
 			</div>
 		</div>
-		<div class="fixed-bottom">
+		<div class="fixed-bottom" id="fixed-bottom">
 			<div class="navbar">
 				<a href="home.html" class="active"><span class="fa fa-home"></span></a>
 				<a href="profile.html"><span class="fa fa-user"></span></a>
